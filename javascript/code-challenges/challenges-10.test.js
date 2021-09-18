@@ -108,6 +108,7 @@ const capHill = [5, 85, 58, 51, 50, 13, 33, 32, 47, 94, 31, 62];
 const alkiBeach = [33, 31, 147, 130, 27, 93, 38, 126, 141, 63, 46, 17];
 
 const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
+let hourlyTotal = [];
 
 const grandTotal = (stores) => {
   // Solution code here...
@@ -144,7 +145,7 @@ const salesData = (hours, data) => {
   }
   return newArr;
 };
-};
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
