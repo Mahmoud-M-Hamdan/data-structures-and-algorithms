@@ -6,4 +6,4 @@ Write a function called insertShiftArray which takes in an array and a value to 
 
 ## whiteboard process 
 
-![](https://cdn.discordapp.com/attachments/890546463338283050/904744365996511353/Untitled_-_Frame_1.jpg)
+![white](https://cdn.discordapp.com/attachments/890546463338283050/904754085746585620/Untitled_-_Frame_1.png)
