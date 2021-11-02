@@ -6,4 +6,4 @@ Write a function called insertShiftArray which takes in an array and a value to 
 
 ## whiteboard process 
 
-![white](fr.jpg)
+![white](mm.jpg)
