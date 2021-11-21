@@ -92,6 +92,33 @@ class BinaryTree {
 
     return preOrderArr;
   }
+
+  maximumValue() {
+    if (!this.root) {
+      return null;
+    }
+
+    let maximumValue = 0;
+
+    const _walk = (node) => {
+      if (node.value > maximumValue) {
+        maximumValue = node.value;
+      }
+
+      // check left
+      if (node.leftChild) {
+        _walk(node.leftChild);
+      }
+      // check right
+      if (node.rightChild) {
+        _walk(node.rightChild);
+      }
+    };
+
+    _walk(this.root);
+
+    return maximumValue;
+  }
 }
 
 module.exports = BinaryTree;
