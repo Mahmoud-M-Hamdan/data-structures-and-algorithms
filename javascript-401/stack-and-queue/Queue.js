@@ -41,7 +41,7 @@ class Queue {
   peek() {
     try {
       if (!this.front) {
-        throw new Error("Queue is empty");
+        return null;
       }
       return this.front.value;
     } catch (error) {
