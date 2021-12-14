@@ -10,6 +10,96 @@ class LinkedList {
     this.returnedLinkedlList = ``;
   }
 
+  /////////////////////////////////////////////////////////////////////////////////////////////
+
+  contains(key) {
+    if (!this.head) {
+      return null;
+    }
+
+    if (this.head.value[key]) {
+      return this.head.value;
+    }
+
+    let currentNode = this.head;
+
+    while (currentNode.next) {
+      if (currentNode.value[key]) {
+        return currentNode.value;
+      }
+      currentNode = currentNode.next;
+    }
+
+    // to check the last node
+    if (currentNode.value[key]) {
+      return currentNode.value;
+    }
+
+    return null;
+  }
+
+  /////////////////////////////////////////////////////////////////////////////////////////////
+
+  /////////////////////////////////////////////////////////////////////////////////////////////
+
+  zipLists(a, b) {
+    let aNode = a.head;
+    let bNode = b.head;
+
+    let currentNode = new Node(aNode.value);
+    this.head = currentNode;
+
+    while ((currentNode && bNode) || (currentNode && aNode)) {
+      if (bNode) {
+        currentNode.next = new Node(bNode.value);
+        currentNode = currentNode.next;
+        bNode = bNode.next;
+      }
+
+      if (aNode) {
+        aNode = aNode.next;
+        if (aNode) {
+          currentNode.next = new Node(aNode.value);
+          currentNode = currentNode.next;
+        }
+      }
+    }
+    return this.head;
+
+
+  }
+
+
+
+  kthFromEnd(k) {
+    try {
+      if (!this.head) {
+        return null;
+      }
+
+      let currentNode = this.head;
+      let nodevalueuesArr = [];
+      while (currentNode.next) {
+        nodevalueuesArr.push(currentNode.value);
+        currentNode = currentNode.next;
+      }
+      nodevalueuesArr.push(currentNode.value);
+
+      if (k >= nodevalueuesArr.length || k < 0) {
+        return null;
+      }
+
+      for (let i = 0; i < nodevalueuesArr.length; i++) {
+        if (nodevalueuesArr.length - 1 - k === i) {
+          // console.log( nodevalueuesArr[i]);
+          return nodevalueuesArr[i];
+        }
+      }
+    } catch (e) {
+      console.error(`error in returning kth from the end for the linked list`);
+    }
+  }
+
 
   append(value) {
     try {
@@ -118,6 +208,7 @@ class LinkedList {
       console.error(`error in inserting a new value to the linked list`);
     }
   }
+
   includes(value) {
     try {
       let currentNode = this.head;
@@ -156,63 +247,6 @@ class LinkedList {
     // console.log(this.returnedLinkedlList);
 
     return this.returnedLinkedlList;
-  }
-
-  kthFromEnd(k) {
-    try {
-      if (!this.head) {
-        return null;
-      }
-
-      let currentNode = this.head;
-      let nodevalueuesArr = [];
-      while (currentNode.next) {
-        nodevalueuesArr.push(currentNode.value);
-        currentNode = currentNode.next;
-      }
-      nodevalueuesArr.push(currentNode.value);
-
-      if (k >= nodevalueuesArr.length || k < 0) {
-        return null;
-      }
-
-      for (let i = 0; i < nodevalueuesArr.length; i++) {
-        if (nodevalueuesArr.length - 1 - k === i) {
-          // console.log( nodevalueuesArr[i]);
-          return nodevalueuesArr[i];
-        }
-      }
-    } catch (e) {
-      console.error(`error in returning kth from the end for the linked list`);
-    }
-  }
-
-  zipLists(a, b) {
-    let aNode = a.head;
-    let bNode = b.head;
-
-    let currentNode = new Node(aNode.value);
-    this.head = currentNode;
-
-
-    while ((currentNode && bNode) || (currentNode && aNode)) {
-      if (bNode) {
-        currentNode.next = new Node(bNode.value);
-        currentNode = currentNode.next;
-        bNode = bNode.next;
-      }
-
-      if (aNode) {
-        aNode = aNode.next;
-        if (aNode) {
-          currentNode.next = new Node(aNode.value);
-          currentNode = currentNode.next;
-        }
-      }
-    }
-    return this.head;
-
-
   }
 }
 
