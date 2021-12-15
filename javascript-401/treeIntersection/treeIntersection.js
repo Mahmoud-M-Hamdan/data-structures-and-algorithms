@@ -1,6 +1,6 @@
 'use strict';
 
-const HashTable = require('..//hash-table/hashtable');
+const HashTable = require('../hash-table/hashtable');
 const BinaryTree = require('../tree/BinaryTree');
 const Node = require('../tree/Node');
 
